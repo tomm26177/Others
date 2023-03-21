@@ -12,15 +12,13 @@ public class Bishop extends Piece {
     @Override
     public void move(int xDimentionMove, int yDimentionMove) {
 
-        boolean isThereEmptySpace = Board.board[super.getX()+xDimentionMove]
-                [super.getY()+yDimentionMove] == null;
-        //sprawdzam czy jest pusto w miejsu gdzie idzie pionek
-        boolean isItspaceToDoMove=true;
 
-        //sprwadzam czy nie ma nic na drodze pionka
 
-        //sprawdzam jaki kolor pionka stoi na miejscu docelowym
-        boolean isItOppositePiece=false;
+
+
+      boolean isPieceHavePlaceToMove =  isPieceHavePlaceToMove(xDimentionMove,yDimentionMove,this);
+
+       boolean isTherePiece= isTherePiece(xDimentionMove,yDimentionMove,this);
 
         //znajduje drugiego pionka i daje go do zmiennej
 
@@ -63,7 +61,7 @@ public class Bishop extends Piece {
 
     public boolean isPieceHavePlaceToMove(int x, int y, Piece piece){
 
-        for (int i = 0; i <= x; i++) {
+        for (int i = 0; i < x; i++) {
 
             try {
 
@@ -78,6 +76,12 @@ public class Bishop extends Piece {
         }
         return true;
 
+    }
+
+
+    public boolean isTherePiece(int x, int y, Piece piece){
+
+        return Board.board[super.getX() + x][super.getY() + y] != null;
     }
 
 

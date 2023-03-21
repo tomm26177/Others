@@ -20,25 +20,11 @@ public class Bishop extends Piece {
 
        boolean isTherePiece= isTherePiece(xDimentionMove,yDimentionMove,this);
 
-      boolean isItOppositePiece =  isItOppositePiece(xDimentionMove,yDimentionMove,this);
+   //   boolean isItOppositePiece =  isItOppositePiece(xDimentionMove,yDimentionMove,this);
 
 
-        if (!isThereEmptySpace) {
-            Piece piece = Board.board[super.getX() + xDimentionMove]
-                    [super.getY() + yDimentionMove];
-            isItOppositePiece = !this.getColor().equals(piece.getColor());
-        }
-        //sprwadzenie czy nie chce sie przemiescic o 0
-        boolean isThisMoveIsExist=xDimentionMove == 0 && yDimentionMove == 0;
 
-
-        if (!(isThisMoveIsExist&&
-                isItspaceToDoMove&&
-                (isThereEmptySpace||isItOppositePiece)
-                )) {
-
-            System.out.println("you cannot shift");
-        } else {
+        if  (isPieceHavePlaceToMove) {
 
             try {
                 if (xDimentionMove == yDimentionMove) {
@@ -47,7 +33,7 @@ public class Bishop extends Piece {
                     int Y = super.getY();
 
                     super.setPiece(X + xDimentionMove, Y + yDimentionMove, this);
-
+                    System.out.println("move sucessful");
                 }
 
             } catch (ArrayIndexOutOfBoundsException e) {
@@ -55,6 +41,8 @@ public class Bishop extends Piece {
             }
 
 
+        }else {
+            System.out.println("you cant move");
         }
 
 
@@ -62,7 +50,11 @@ public class Bishop extends Piece {
 
     public boolean isPieceHavePlaceToMove(int x, int y, Piece piece){
 
-        for (int i = 0; i < x; i++) {
+        if(x==0&&y==0){
+            return false;
+        }
+
+        for (int i = 1; i < x; i++) {
 
             try {
 

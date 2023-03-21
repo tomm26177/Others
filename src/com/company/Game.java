@@ -15,16 +15,16 @@ public class Game {
     }
 
     public void startSetup(){
-        Pawn pawn1W = new Pawn("w");
-        Pawn pawn2W = new Pawn("w");
-        Pawn pawn3W = new Pawn("w");
-        Pawn pawn4W = new Pawn("w");
-        Pawn pawn5W = new Pawn("w");
-        Pawn pawn6W = new Pawn("w");
-        Pawn pawn7W = new Pawn("w");
-        Pawn pawn8W = new Pawn("w");
-        Rook rook1W = new Rook("w");
-        Rook rook2W = new Rook("w");
+//        Pawn pawn1W = new Pawn("w");
+//        Pawn pawn2W = new Pawn("w");
+//        Pawn pawn3W = new Pawn("w");
+//        Pawn pawn4W = new Pawn("w");
+//        Pawn pawn5W = new Pawn("w");
+//        Pawn pawn6W = new Pawn("w");
+//        Pawn pawn7W = new Pawn("w");
+//        Pawn pawn8W = new Pawn("w");
+//        Rook rook1W = new Rook("w");
+       Rook rook2W = new Rook("w");
         Horse horse1W = new Horse("w");
         Horse horse2W = new Horse("w");
         King kingW = new King("w");
@@ -37,15 +37,15 @@ public class Game {
 
 
 
-        board.setPiece(0,1, pawn1W);
-        board.setPiece(1,1, pawn2W);
-        board.setPiece(2,1, pawn3W);
-        board.setPiece(3,1, pawn4W);
-        board.setPiece(4,1, pawn5W);
-        board.setPiece(5,1, pawn6W);
-        board.setPiece(6,1, pawn7W);
-        board.setPiece(7,1, pawn8W);
-        board.setPiece(0,0,rook1W);
+//        board.setPiece(0,1, pawn1W);
+//        board.setPiece(1,1, pawn2W);
+//        board.setPiece(2,1, pawn3W);
+//        board.setPiece(3,1, pawn4W);
+//        board.setPiece(4,1, pawn5W);
+//        board.setPiece(5,1, pawn6W);
+//        board.setPiece(6,1, pawn7W);
+//        board.setPiece(7,1, pawn8W);
+//        board.setPiece(0,0,rook1W);
         board.setPiece(1,0,horse1W);
         board.setPiece(2,0,bishop1W);
         board.setPiece(3,0,kingW);

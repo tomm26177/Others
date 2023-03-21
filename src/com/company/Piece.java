@@ -47,15 +47,15 @@ public  class Piece extends Board {
         this.color = color;
     }
 
-    public boolean isPieceHavePlaceToMove(int x, int y, Piece piece){
-
-
-       return true;
-    }
-
-    public boolean isItOppositePiece(int x, int y, Piece piece){
-
-      Piece pieceOther=  Board.board[piece.getX() + x][piece.getY() + y];
-        return !pieceOther.getColor().equalsIgnoreCase(piece.getColor());
-    }
+//    public boolean isPieceHavePlaceToMove(int x, int y, Piece piece){
+//
+//
+//       return true;
+//    }
+//
+//    public boolean isItOppositePiece(int x, int y, Piece piece){
+//
+//      Piece pieceOther=  Board.board[piece.getX() + x][piece.getY() + y];
+//        return !pieceOther.getColor().equalsIgnoreCase(piece.getColor());
+//    }
 }

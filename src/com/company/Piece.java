@@ -52,4 +52,10 @@ public  class Piece extends Board {
 
        return true;
     }
+
+    public boolean isItOppositePiece(int x, int y, Piece piece){
+
+      Piece pieceOther=  Board.board[piece.getX() + x][piece.getY() + y];
+        return !pieceOther.getColor().equalsIgnoreCase(piece.getColor());
+    }
 }

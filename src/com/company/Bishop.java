@@ -20,7 +20,8 @@ public class Bishop extends Piece {
 
        boolean isTherePiece= isTherePiece(xDimentionMove,yDimentionMove,this);
 
-        //znajduje drugiego pionka i daje go do zmiennej
+      boolean isItOppositePiece =  isItOppositePiece(xDimentionMove,yDimentionMove,this);
+
 
         if (!isThereEmptySpace) {
             Piece piece = Board.board[super.getX() + xDimentionMove]
@@ -81,8 +82,10 @@ public class Bishop extends Piece {
 
     public boolean isTherePiece(int x, int y, Piece piece){
 
-        return Board.board[super.getX() + x][super.getY() + y] != null;
+        return Board.board[piece.getX() + x][piece.getY() + y] != null;
     }
+
+
 
 
 

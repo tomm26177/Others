@@ -70,6 +70,10 @@ public class Bishop extends Piece {
 
     }
 
+    public boolean isPieceHavePlaceToMove(int x, int y, Piece piece){
+
+
+    }
 
 
 
@@ -79,7 +83,9 @@ public class Bishop extends Piece {
 
 
 
-}
+
+
+    }
 
 
 

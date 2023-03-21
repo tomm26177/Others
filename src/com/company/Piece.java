@@ -46,4 +46,10 @@ public  class Piece extends Board {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public boolean isPieceHavePlaceToMove(int x, int y, Piece piece){
+
+
+       return true;
+    }
 }

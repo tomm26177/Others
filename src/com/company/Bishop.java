@@ -18,16 +18,7 @@ public class Bishop extends Piece {
         boolean isItspaceToDoMove=true;
 
         //sprwadzam czy nie ma nic na drodze pionka
-        for (int i = 0; i < xDimentionMove; i++) {
 
-            if (Board.board[super.getX() + i][super.getY() + i] != null) {
-                isItspaceToDoMove = false;
-                break;
-            }else {
-                isItspaceToDoMove = true;
-            }
-
-        }
         //sprawdzam jaki kolor pionka stoi na miejscu docelowym
         boolean isItOppositePiece=false;
 
@@ -72,6 +63,15 @@ public class Bishop extends Piece {
 
     public boolean isPieceHavePlaceToMove(int x, int y, Piece piece){
 
+        for (int i = 0; i < x; i++) {
+
+            if (Board.board[super.getX() + i][super.getY() + i] != null) {
+               return false;
+            }
+
+
+        }
+        return true;
 
     }
 

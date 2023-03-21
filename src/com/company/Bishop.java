@@ -63,12 +63,17 @@ public class Bishop extends Piece {
 
     public boolean isPieceHavePlaceToMove(int x, int y, Piece piece){
 
-        for (int i = 0; i < x; i++) {
+        for (int i = 0; i <= x; i++) {
 
-            if (Board.board[super.getX() + i][super.getY() + i] != null) {
-               return false;
+            try {
+
+
+                if (Board.board[super.getX() + i][super.getY() + i] != null) {
+                    return false;
+                }
+            }catch (ArrayIndexOutOfBoundsException e){
+                return false;
             }
-
 
         }
         return true;

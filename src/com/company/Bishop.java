@@ -63,6 +63,7 @@ public class Bishop extends Piece {
                     return false;
                 }
             }catch (ArrayIndexOutOfBoundsException e){
+                e.printStackTrace();
                 return false;
             }
 

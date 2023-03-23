@@ -74,8 +74,10 @@ public class Bishop extends Piece {
 
 
     public boolean isTherePiece(int x, int y, Piece piece){
-
+        if(piece!=null){
         return Board.board[piece.getX() + x][piece.getY() + y] != null;
+    }
+        return false;
     }
 
 

@@ -2,98 +2,63 @@ package com.company;
 
 public class Bishop extends Piece {
 
-
-    Bishop(String color) {
+    public Bishop(String color) {
         super(color);
-
     }
-
 
     @Override
     public void move(int xDimentionMove, int yDimentionMove) {
+        boolean isPieceHavePlaceToMove = isPieceHavePlaceToMove(xDimentionMove, yDimentionMove, this);
+        boolean isTherePiece = isTherePiece(xDimentionMove, yDimentionMove, this);
 
-
-
-
-
-      boolean isPieceHavePlaceToMove =  isPieceHavePlaceToMove(xDimentionMove,yDimentionMove,this);
-
-       boolean isTherePiece= isTherePiece(xDimentionMove,yDimentionMove,this);
-
-   //   boolean isItOppositePiece =  isItOppositePiece(xDimentionMove,yDimentionMove,this);
-
-
-
-        if  (isPieceHavePlaceToMove) {
-
+        if (isPieceHavePlaceToMove) {
             try {
-                if (xDimentionMove == yDimentionMove) {
+                if (Math.abs(xDimentionMove) == Math.abs(yDimentionMove)) {
+                    int x = super.getX();
+                    int y = super.getY();
 
-                    int X = super.getX();
-                    int Y = super.getY();
-
-                    super.setPiece(X + xDimentionMove, Y + yDimentionMove, this);
-                    System.out.println("move sucessful");
+                    super.setPiece(x + xDimentionMove, y + yDimentionMove, this);
+                    System.out.println("Move successful");
+                } else {
+                    System.out.println("Invalid move: bishop can only move diagonally.");
                 }
-
             } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("you cannot go out of board dude :/");
+                System.out.println("Invalid move: the bishop cannot go out of the board.");
             }
-
-
-        }else {
-            System.out.println("you cant move");
+        } else {
+            System.out.println("Invalid move: the bishop cannot move to the selected position.");
         }
-
-
     }
 
-    public boolean isPieceHavePlaceToMove(int x, int y, Piece piece){
-
-        if(x==0&&y==0){
+    public boolean isPieceHavePlaceToMove(int x, int y, Piece piece) {
+        if (x == 0 && y == 0) {
             return false;
         }
 
-        for (int i = 1; i < x; i++) {
+        int startX = piece.getX();
+        int startY = piece.getY();
 
-            try {
+        for (int i = 1; i < Math.abs(x); i++) {
+            int nextX = startX + i * Integer.signum(x);
+            int nextY = startY + i * Integer.signum(y);
 
-
-                if (Board.board[super.getX() + i][super.getY() + i] != null) {
-                    return false;
-                }
-            }catch (ArrayIndexOutOfBoundsException e){
-                e.printStackTrace();
+            if (Board.board[nextX][nextY] != null) {
                 return false;
             }
-
         }
         return true;
-
     }
 
+    public boolean isTherePiece(int x, int y, Piece piece) {
+        if (piece != null) {
+            int nextX = piece.getX() + x;
+            int nextY = piece.getY() + y;
 
-    public boolean isTherePiece(int x, int y, Piece piece){
-        if(piece!=null){
-        return Board.board[piece.getX() + x][piece.getY() + y] != null;
-    }
+            return Board.board[nextX][nextY] != null;
+        }
         return false;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-
+}
 
 
 

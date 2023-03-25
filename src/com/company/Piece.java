@@ -1,61 +1,40 @@
 package com.company;
 
-public  class Piece extends Board {
-   private int X;
-   private int Y;
-   private String color;
-   Piece(String color){
-       this.color=color;
-   }
+import java.util.List;
 
+public abstract class Piece {
+    private String color;
+    private int x;
+    private int y;
 
-
-
-    public void move(int x,int y) {
-
-
-
-    }
-
-    public void remove(){
-        Board.board[this.X][this.Y]=null;
-
-    }
-
-
-    public int getX() {
-        return X;
-    }
-
-    public int getY() {
-        return Y;
+    public Piece(String color, int x, int y) {
+        this.color = color;
+        this.x = x;
+        this.y = y;
     }
 
     public String getColor() {
         return color;
     }
 
-    public void setX(int x) {
-        X = x;
+    public int getX() {
+        return x;
     }
 
-    public void setY(int y) {
-        Y = y;
+    public int getY() {
+        return y;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setPiece(int x, int y, Piece piece) {
+        Board.board[x][y] = piece;
+        this.x = x;
+        this.y = y;
     }
 
-//    public boolean isPieceHavePlaceToMove(int x, int y, Piece piece){
-//
-//
-//       return true;
-//    }
-//
-//    public boolean isItOppositePiece(int x, int y, Piece piece){
-//
-//      Piece pieceOther=  Board.board[piece.getX() + x][piece.getY() + y];
-//        return !pieceOther.getColor().equalsIgnoreCase(piece.getColor());
-//    }
+    public abstract void move(int x, int y){
+        Move move = new Move(this,);
+    }
+
+    public abstract List<Move> getPossibleMoves(Board board, int startX, int startY);
 }
+

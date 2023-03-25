@@ -1,7 +1,8 @@
 package com.company;
 
 public class Board {
-    private final Piece[][] board;
+
+    public final Piece[][] board;
     private boolean isGameEnded;
 
     public Board() {
@@ -13,7 +14,7 @@ public class Board {
         board[x][y] = piece;
     }
 
-    public Piece getPiece(int x, int y) {
+    public static Piece getPiece(int x, int y) {
         return board[x][y];
     }
 
@@ -55,5 +56,8 @@ public class Board {
 
     public void setGameEnded(boolean gameEnded) {
         isGameEnded = gameEnded;
+    }
+
+    public void removePiece(Piece capturedPiece) {
     }
 }

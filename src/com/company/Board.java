@@ -2,11 +2,15 @@ package com.company;
 
 public class Board {
 
-    public final Piece[][] board;
+    public final Piece[][] board = new Piece[8][8];
     private boolean isGameEnded;
 
+
+
+
     public Board() {
-        board = new Piece[8][8];
+
+
         isGameEnded = false;
     }
 
@@ -59,5 +63,9 @@ public class Board {
     }
 
     public void removePiece(Piece capturedPiece) {
+    }
+
+    public  void initializedBoard(){
+        board[0][0]
     }
 }

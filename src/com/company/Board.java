@@ -9,7 +9,7 @@ public class Board {
 
 
     public Board() {
-
+        initializedBoard();
 
         isGameEnded = false;
     }
@@ -66,6 +66,6 @@ public class Board {
     }
 
     public  void initializedBoard(){
-        board[0][0]
+
     }
 }

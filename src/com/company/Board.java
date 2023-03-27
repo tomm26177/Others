@@ -2,7 +2,8 @@ package com.company;
 
 public class Board {
 
-    public final Piece[][] board = new Piece[8][8];
+
+    public static final Piece[][] board = new Piece[8][8];
     private boolean isGameEnded;
 
 

@@ -1,0 +1,161 @@
+clc 
+clearvars
+
+zad1_2('baboonTMW.bmp')
+
+zad1_3('baboonTMW.bmp')
+
+function sum = zad1_2(pictureName) 
+
+
+
+
+M=imread(pictureName);
+M=double(M);
+
+
+ni=zeros(1,256);
+
+pixelAmount = numel(M);
+sum=0;
+
+
+
+[h,w]=size(M);
+
+for i=1:h       
+    for j=1:w
+            
+             ni(M(i,j) + 1) = ni(M(i,j) + 1) + 1; 
+
+        end
+
+    end
+
+
+
+
+for i=1:256
+%ni - ile razy wystapila dana liczba
+
+
+
+
+pi = ni(i) ./ (w.*h);
+
+if ~(pi==0)
+sum = sum + pi*log2(pi) ;
+end
+
+
+end
+sum = -sum;
+
+
+end
+
+
+
+
+
+function sum=  zad1_3(pictureName)
+M=imread(pictureName);
+M=double(M);
+
+
+
+ni=zeros(1,513);
+ni =double(ni);
+
+[h,w]=size(M);
+Mp = zeros(h,w);
+Mp=double(Mp);
+% dodac do mp prim element z gornego lewego rogu
+% iterowac w dol w pierwszej koleumnie 
+% iterować w bok na podstawie pierwszej kolumny 
+% dodac do mp 256 zeby nie bylo ujemnych indeksow do ni
+% dodac wyniki mp do do prawdopodobienst w ni
+
+
+
+
+Mp(h,1)=M(h,1);
+ for i=2:h
+     Mp(i,1) = M(i,1)-M(i-1,1);
+ end
+
+
+
+for i=1:h       
+    for j=2:w
+            
+            Mp(i,j)= M(i,j)-M(i,j-1);
+
+        end
+
+end
+
+
+
+
+for i=1:h       
+    for j=1:w
+            
+             ni(Mp(i,j) + 256) = ni(Mp(i,j) + 256) + 1; 
+
+        end
+
+end
+
+
+
+
+nip = zeros(1,256);
+nip = double(nip);
+
+%for i=1:w       
+   % for j=1:h
+            
+   %          nip(M(i,j) ) = (nip(M(i,j) ) + 1); 
+
+   %     end
+
+  %  end
+
+
+    for i=1:1: 513
+
+        
+        
+sum=0;
+for i=1:513
+%ni - ile razy wystapila dana liczba
+
+
+p = ni(i) ./ (w.*h);
+
+if ~(p==0)
+sum = sum + p*log2(p) ;
+end
+
+
+
+
+end
+
+sum=-sum ;
+    end
+
+ ni = ni / (w * h);
+    nip = nip / (w * h);
+
+    
+
+%plot(ni)
+%hold on
+%plot(nip)
+%
+7.4474+6.7059+7.3579+7.3459+7.5545+7.4838+7.1997+
+
+
+end

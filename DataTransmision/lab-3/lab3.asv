@@ -1,0 +1,151 @@
+clc
+fs = 10000; % czestotliwosc probkowania 
+Tc = 1;
+n= Tc*fs; % liczba próbek sygnału
+t = linspace(0, Tc, n); % wektor czasu
+fm=100;
+fn=4000;
+WektorRozwiazan = zeros(size(t));
+
+
+
+
+
+
+
+
+WektorWidma= zeros((n/2)-1,1);
+
+
+
+for k=0:(n/2)-1
+
+
+
+
+kp=19;
+for i=1:n
+
+     WektorRozwiazan(i) = ZF(k,fn,fm,t(i));
+
+
+end
+
+
+   WektorWidma(k+1)= DFT(k,n,WektorRozwiazan);
+   WektorWidma(k+1)=  sqrt( (real(WektorWidma(k+1)))^2 + (imag( WektorWidma(k+1)))^2  );
+
+end
+
+
+plot(WektorWidma)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function z= ZA(k,fn,fm,t)
+
+z= (k*M(fm,t)+1)*cos(2*pi*fn*t);
+
+end
+
+function z= ZP(k,fn,fm,t)
+
+z= cos(2*pi*fn*t+k*M(fm,t));
+
+end
+
+
+function z= ZF(k,fn,fm,t)
+
+z= cos(2*pi*fn*t+(k/fm)*M(fm,t));
+
+end
+
+
+function m = M(fm,t)
+
+m=sin(2*pi*fm*t);
+
+end
+
+
+
+
+
+
+
+
+
+function sum= DFT(k,N,probki_x)
+
+e= 2.71828 ;
+sum=0;
+for n=0:1:N-1
+
+  sum=sum+  probki_x(n+1)*e^(-1i*((2*pi*k*n)/N));
+
+
+end
+
+end
+
+
+
+function DFTp = DFTP(k,N,probki_x)
+
+DFTp=10*log10(DFT(k,N,probki_x));
+
+
+
+end
+
+
+
+

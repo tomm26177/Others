@@ -1,0 +1,24 @@
+
+porównianie czasów dla DFT i FFT:
+
+ czas_x_DFT    czas_y_DFT    czas_z_DFT    czas_v_DFT    czas_u_DFT    czas_b1_DFT    czas_b2_DFT    czas_b3_DFT    
+  __________    __________    __________    __________    __________    ___________    ___________    ___________
+
+     20.241        20.595        20.481        20.296        5.2351        41.029         42.051         40.714 
+
+
+
+ czas_x_FFT    czas_y_FFT    czas_z_FFT    czas_v_FFT    czas_u_FFT    czas_b1_FFT    czas_b2_FFT    czas_b3_FFT 
+  __________    __________    __________    __________    __________    ___________    ___________    ___________
+   
+   0.76708       0.76997       0.77809       0.70505       0.23862        0.36643        0.3224         0.42889  
+
+
+Wnioski:
+
+Porównując czasy obliczeń między DFT a FFT dla różnych sygnałów, można zauważyć ogromną różnicę w wydajności obu metod. 
+Czasy obliczeń dla DFT są znacznie dłuższe w porównaniu do FFT.
+
+Możemy zauważyć, że czas obliczeń FFT nieznacznie się różni między różnymi sygnałami, 
+co sugeruje, że wydajność FFT nie jest uzależniona od charakterystyki sygnału, 
+w przeciwieństwie do DFT, gdzie czas obliczeń wzrasta wraz ze złożonością sygnału. 

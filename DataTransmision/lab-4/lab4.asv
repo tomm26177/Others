@@ -1,0 +1,45 @@
+b=[0,1,1,0,1,1,0,1,0,0,0,0,1,0,1,1,0];
+B= length(b); 
+Tc=5;
+fs=5000;
+n= Tc*fs; % liczba próbek sygnału
+Tb=Tc/B; %czas trwania jednego "bloku"
+Tbp=tb*fs; % ilość próbek na "blok"
+t = linspace(0, Tc, n); % wektor czasu
+
+WektorRozwiazan = zeros(size(t));
+
+
+for i=1:B
+
+for i=1:Tbp
+  WektorRozwiazan = Z()
+end
+
+
+end
+
+function z = Z(fn,fi,t)
+
+z=sin(2*pi*fn*t+fi);
+
+end
+
+function za = ZA(fn,fi,b,t)
+
+
+if(b==0)
+
+z=sin(2*pi*fn*t+fi);
+
+end
+
+
+if(b==1)
+
+z=sin(2*pi*fn*t+fi);
+
+end
+
+end
+

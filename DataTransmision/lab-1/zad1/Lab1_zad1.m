@@ -1,0 +1,24 @@
+fs = 8000; % czestotliwosc probkowania 
+f= 4500; % czestotliwosc sygnalu
+Tc = 2;
+o = 0;
+n= Tc*fs; % liczba próbek sygnału
+t = linspace(0, Tc, n); % wektor czasu
+WektorRozwiazan = zeros(n);
+
+for i = 1:n
+    WektorRozwiazan(i) = X(t(i), f, o);
+end
+
+%plot(t, WektorRozwiazan)
+%title('x(t)')
+%xlabel('t')
+%ylabel('x(t)')
+
+
+function x = X(t,f,o)
+% funkcja nr 1 z tabelki 1
+
+x = cos(2*pi*f*t + o)*cos(2.5*(t^(0.2))*pi);
+
+end

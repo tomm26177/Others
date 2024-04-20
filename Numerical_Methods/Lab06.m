@@ -1,0 +1,92 @@
+clc 
+
+close all
+
+
+p=4;
+
+switch p
+    case 1
+        A=[2,2,1;1,4,1;0,1,2];
+        B=[3;-1;1];
+    case 2
+        A=[4,1,4;2,-1,2;1,1,2];
+        B=[2;-4;-1];
+    case 3
+        A=[2,2,1,-1;0,3,1,2;1,2,2,1;1,1,1,0];
+        B=[6;-1;4;4];
+    case 4
+        A=[2,1,-1;0,3,1;-2,1,4];
+        B=[4;-2;-4];
+
+
+end
+
+[l,u]=lu(A);
+[L,U]=WyznaczanieLU(A);
+
+norm(l-L)
+norm(u-U)
+
+x=solveLU(L,U,B)
+
+
+
+function[L,U] = WyznaczanieLU(A)
+[m,n]=size(A);
+assert(m==n);
+L=eye(n);
+U=zeros(n);
+for i=1:1:m
+    for j=1:1:n
+        if i>j 
+           suma=0;
+           for k=1:1:j-1
+               suma=suma+L(i,k).*U(k,j);
+           end
+           L(i,j)=(A(i,j)-suma)./(U(j,j));
+
+        else
+              suma=0;
+            for k=1:1:i-1
+                suma=suma+ L(i,k).*U(k,j);
+            end
+            U(i,j)=A(i,j)-suma;
+        end
+    end
+ end
+end
+
+function x =solveLU(L,U,B)
+n= length(B);
+y=zeros(n,1);
+
+for i=1:n
+
+    suma=0;
+    for j=1:i-1
+        suma=suma+L(i,j).*y(j);
+
+    end
+    y(i)=B(i)-suma;
+end
+
+x=zeros(n,1);
+
+for i=n:-1:1
+suma=0;
+    for j=i+1:n
+        suma=suma+U(i,j).*x(j);
+
+    end
+    x(i)=(1./(U(i,i))).*(y(i)-suma);
+
+
+
+end
+
+
+end
+
+
+
